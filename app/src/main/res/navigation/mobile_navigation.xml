@@ -3,23 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
-
+    app:startDestination="@id/nav_book">
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.androidfinal.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
+        android:id="@+id/nav_book"
+        android:name="com.example.androidfinal.BooksFragment"
+        android:label="fragment_books"
+        tools:layout="@layout/fragment_books" />
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.androidfinal.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
+        android:id="@+id/nav_favouriteBooks"
+        android:name="com.example.androidfinal.FavouriteBooksFragment"
+        android:label="fragment_favourite_books"
+        tools:layout="@layout/fragment_favourite_books" />
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.androidfinal.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_about"
+        android:name="com.example.androidfinal.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>
