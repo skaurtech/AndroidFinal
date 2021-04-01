@@ -7,16 +7,16 @@
     <fragment
         android:id="@+id/nav_book"
         android:name="com.example.androidfinal.BooksFragment"
-        android:label="fragment_books"
+        android:label="Search a Book"
         tools:layout="@layout/fragment_books" />
     <fragment
         android:id="@+id/nav_favouriteBooks"
         android:name="com.example.androidfinal.FavouriteBooksFragment"
-        android:label="fragment_favourite_books"
+        android:label="Fsvourite Book"
         tools:layout="@layout/fragment_favourite_books" />
     <fragment
         android:id="@+id/nav_about"
         android:name="com.example.androidfinal.AboutFragment"
-        android:label="fragment_about"
+        android:label="About"
         tools:layout="@layout/fragment_about" />
 </navigation>
