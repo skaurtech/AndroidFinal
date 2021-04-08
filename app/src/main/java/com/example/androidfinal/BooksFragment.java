@@ -3,10 +3,17 @@ package com.example.androidfinal;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import static com.example.androidfinal.MainActivity.fab;
 
@@ -17,6 +24,17 @@ import static com.example.androidfinal.MainActivity.fab;
  */
 public class BooksFragment extends Fragment {
 
+    private RecyclerView mRecyclerView;
+    private ArrayList<Book> mBooks;
+    private RecyclerViewAdapter mAdapter;
+    private RequestQueue mRequestQueue;
+
+    private static  final  String BASE_URL="https://www.googleapis.com/books/v1/volumes?q=";
+
+    private EditText search_edit_text;
+    private Button search_button;
+    private ProgressBar loading_indicator;
+    private TextView error_message;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
