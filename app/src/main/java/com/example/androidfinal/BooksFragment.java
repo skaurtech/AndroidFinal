@@ -3,6 +3,7 @@ package com.example.androidfinal;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -24,8 +25,7 @@ import static com.example.androidfinal.MainActivity.fab;
  */
 public class BooksFragment extends Fragment {
 
-    private RecyclerView mRecyclerView;
-   
+
 
     private static  final  String BASE_URL="https://www.googleapis.com/books/v1/volumes?q=";
 
@@ -78,6 +78,13 @@ public class BooksFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_books, container, false);
+       Button searchButton = view.findViewById(R.id.searchButton);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_nav_book_to_resultFragment);
+            }
+        });
         fab.hide();
         return view;
 
