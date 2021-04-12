@@ -1,6 +1,8 @@
 package com.example.androidfinal;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
@@ -8,6 +10,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -55,9 +58,27 @@ public static FloatingActionButton fab;
     }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+            int id = item.getItemId();
+            if (id == R.id.action_settings) {
+                return true;
+            } else if (id == R.id.actionabout) {
+                Intent intent = new Intent(MainActivity.this, AboutFragment.class);
+                startActivity(intent);
+               return true;
+            } else if (id == R.id.actionemailFragment) {
+                Intent intent2 = new Intent(MainActivity.this,EmailFragment.class);
+                startActivity(intent2);
+                return true;
+            }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+       return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-    }
+   }
 }

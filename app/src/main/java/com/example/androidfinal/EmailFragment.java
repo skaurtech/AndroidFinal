@@ -5,21 +5,19 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import static com.example.androidfinal.MainActivity.fab;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AboutFragment#newInstance} factory method to
+ * Use the {@link EmailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AboutFragment extends Fragment {
+public class EmailFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,7 +28,7 @@ public class AboutFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AboutFragment() {
+    public EmailFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +38,11 @@ public class AboutFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AboutFragment.
+     * @return A new instance of fragment EmailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AboutFragment newInstance(String param1, String param2) {
-        AboutFragment fragment = new AboutFragment();
+    public static EmailFragment newInstance(String param1, String param2) {
+        EmailFragment fragment = new EmailFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,26 +63,28 @@ public class AboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        fab.hide();
-        View view = inflater.inflate(R.layout.fragment_about, container, false);
+        View view = inflater.inflate(R.layout.fragment_email, container, false);
 
-        Button emailButton = view.findViewById(R.id.contactUs);
+        Button emailButton = view.findViewById(R.id.emailusButton);
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Navigation.findNavController(view).navigate(R.id.action_nav_about_to_emailFragment);
+                String[] emailAddresses = {"abcd294@gmail.com"};
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL, emailAddresses);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Question related to the Book search app");
+                intent.putExtra(Intent.EXTRA_TEXT, "I would like to report an issue with the following:");
+                if(intent.resolveActivity(getActivity().getPackageManager()) == null){
+                    //Toast.makeText(getContext(), "No app installed", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                }else{
+                    //display error message here
+                    Toast.makeText(getContext(), "No app installed", Toast.LENGTH_SHORT).show();
+                    //Snackbar.make(getView(), "No app installed", Snackbar.LENGTH_SHORT).show();
+                }
             }
         });
-        Button phone = view.findViewById(R.id.phone);
-        phone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri number = Uri.parse("tel:4372490164");
-                Intent intent = new Intent(Intent.ACTION_DIAL, number);
-                startActivity(intent);
-
-            }
-        });
-       return view;
+        return view;
     }
 }

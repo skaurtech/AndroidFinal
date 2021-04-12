@@ -4,31 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AboutFragment">
+    tools:context=".EmailFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/about"
-        android:padding="10dp"
-        android:paddingBottom="30dp"
-        android:textSize="14sp"
-        android:text="This app is designed to help you to read any book at any time."
-        android:textAlignment="center"/>
-    <Button
-        android:id="@+id/contactUs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:text="Email" />
+        android:textSize="18sp"
+        android:text="If you have any query regarding the app just email us by clicking the following button:" />
 
     <Button
-        android:id="@+id/phone"
+        android:id="@+id/emailusButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:text="Call us" />
-
+        android:text="Email us" />
 
 </LinearLayout>
