@@ -25,9 +25,7 @@ import static com.example.androidfinal.MainActivity.fab;
 public class BooksFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
-    private ArrayList<Book> mBooks;
-    private RecyclerViewAdapter mAdapter;
-    private RequestQueue mRequestQueue;
+   
 
     private static  final  String BASE_URL="https://www.googleapis.com/books/v1/volumes?q=";
 
