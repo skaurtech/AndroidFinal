@@ -6,7 +6,7 @@
     app:startDestination="@id/nav_book">
     <fragment
         android:id="@+id/nav_book"
-        android:name="com.example.androidfinal.BooksFragment"
+        android:name="com.example.androidfinal.Fragments.BooksFragment"
         android:label="Search a Book"
         tools:layout="@layout/fragment_books" >
         <action
@@ -15,12 +15,12 @@
     </fragment>
     <fragment
         android:id="@+id/nav_favouriteBooks"
-        android:name="com.example.androidfinal.FavouriteBooksFragment"
+        android:name="com.example.androidfinal.Fragments.FavouriteBooksFragment"
         android:label="Fsvourite Book"
         tools:layout="@layout/fragment_favourite_books" />
     <fragment
         android:id="@+id/nav_about"
-        android:name="com.example.androidfinal.AboutFragment"
+        android:name="com.example.androidfinal.Fragments.AboutFragment"
         android:label="About"
         tools:layout="@layout/fragment_about" >
         <action
@@ -29,12 +29,12 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.example.androidfinal.ResultFragment"
+        android:name="com.example.androidfinal.Fragments.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" />
     <fragment
         android:id="@+id/emailFragment"
-        android:name="com.example.androidfinal.EmailFragment"
+        android:name="com.example.androidfinal.Fragments.EmailFragment"
         android:label="Email"
         tools:layout="@layout/fragment_email" />
 </navigation>

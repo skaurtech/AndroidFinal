@@ -1,4 +1,4 @@
-package com.example.androidfinal;
+package com.example.androidfinal.Model;
 
 public class Book {
     private String mTitle;
